@@ -38,7 +38,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'jisho',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 )
+
+#required by django.contrib.sites (sitename available as db entry by id)
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,9 +56,27 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+     'django.contrib.auth.context_processors.auth',
+    # Required by allauth template tags
+    "django.core.context_processors.request",
+    # allauth specific context processors
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
+)
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+LOGIN_REDIRECT_URL = '/'
+
 ROOT_URLCONF = 'weeabot.urls'
 
 WSGI_APPLICATION = 'weeabot.wsgi.application'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Database
@@ -79,7 +104,7 @@ USE_TZ = True
 
 #site specific templates
 TEMPLATE_DIRS = (
-  BASE_DIR,
+  os.path.join(BASE_DIR, "templates")
 )
 
 

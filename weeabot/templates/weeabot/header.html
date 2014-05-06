@@ -8,7 +8,7 @@ Currently logged in as: <a href='/accounts/profile' >{{ user.username }}</a>
         </div>
       </td></tr>
       <tr><td>
-        <form action="/logout">
+        <form action="/accounts/logout">
           <input class='logout' type="submit" value="logout">
         </form>
       </td>
@@ -16,12 +16,12 @@ Currently logged in as: <a href='/accounts/profile' >{{ user.username }}</a>
 {% else %}
       <table class='authentication'><tr>
         <td>
-          <form action="/login">
+          <form action="/accounts/login">
             <input class='login' type="submit" value="login">
           </form>
         </td>
         <td>
-          <form action='/accounts/register'>
+          <form action='/accounts/signup'>
             <input class='register' type="submit" value="register">
           </form>
         </td>

@@ -8,7 +8,8 @@ urlpatterns = patterns('',
   # url(r'^$', 'weeabot.views.home', name='home'),
   # url(r'^blog/', include('blog.urls')),
 
-  url(r'^$', TemplateView.as_view(template_name='templates/index.html'),
+  url(r'^$', TemplateView.as_view(template_name='weeabot/index.html'),
     name='home'),
+  url(r'^accounts/', include('allauth.urls')),
   url(r'^admin/', include(admin.site.urls)),
 )

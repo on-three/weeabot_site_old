@@ -1,5 +1,10 @@
 Django==1.6.4
 South==0.8.4
 argparse==1.2.1
+django-allauth==0.16.1
+oauthlib==0.6.1
+python-openid==2.2.5
+requests==2.2.1
+requests-oauthlib==0.4.0
 uWSGI==2.0.4
 wsgiref==0.1.2

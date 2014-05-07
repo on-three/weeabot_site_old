@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
   url(r'^$', TemplateView.as_view(template_name='weeabot/index.html'),
     name='home'),
+  url(r'^jisho/', include('jisho.urls')),
   url(r'^accounts/profile/', TemplateView.as_view(template_name='weeabot/profile.html')),
   url(r'^accounts/', include('allauth.urls')),
   url(r'^admin/', include(admin.site.urls)),

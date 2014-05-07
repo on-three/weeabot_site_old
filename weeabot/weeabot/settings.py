@@ -104,7 +104,8 @@ USE_TZ = True
 
 #site specific templates
 TEMPLATE_DIRS = (
-  os.path.join(BASE_DIR, "templates")
+  os.path.join(BASE_DIR, "templates"),
+  os.path.join(BASE_DIR, "jisho/templates"),
 )
 
 

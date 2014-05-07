@@ -1,0 +1,7 @@
+{% extends 'weeabot/base.html' %}
+
+{% block content %}
+  {% with show_nicks=True show_vocab_lists=True %}
+    {% include "jisho/wordlist.html" %}
+  {% endwith %}
+{% endblock %}

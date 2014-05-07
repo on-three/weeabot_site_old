@@ -1,0 +1,1 @@
+from weeabot import *

@@ -6,6 +6,7 @@ beautifulsoup4==4.3.2
 cffi==0.8.2
 cryptography==0.4
 django-allauth==0.16.1
+-e git+https://github.com/johnoneil/jpn@1b45ebc02aaad1434339fed4ec37654ab1957e43#egg=jpn-master
 oauthlib==0.6.1
 pyOpenSSL==0.14
 pycparser==2.10

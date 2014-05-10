@@ -2,19 +2,20 @@
 """
 
 Module: romaji2katakana.py
-Desc: use www.sljfaq.org to turn romaji into katakana
+Desc: use local lib or www.sljfaq.org to turn romaji into katakana
 Author: on_three
 Email: on.three.email@gmail.com
 DATE: Tuesday, Jan 14th 2013
 
-  This web service is superior to the python romkan library
-  It better handles odd characters and sylables like 'th'
+  The web service has the best transliteration i've seen so far,
+  but i'm defaulting to local implementation in hopes i can 
+  improve it.
   
 """
 from bs4 import BeautifulSoup
 import string
 import re
-import romkan
+from jpn.transliterate import romaji2katakana as transliterate
 from twisted.python import log
 from twisted.web.client import getPage
 
@@ -52,14 +53,14 @@ class GetKatakana(object):
     self.callback = callback
     self.error_callback = error_callback
 
-  def lookup(self, romaji, channel, use_romkan=False):
+  def lookup(self, romaji, channel, use_webservice=False):
     '''
     Initiate an asynchronous transform of romaji to katakana
-    This can be done by a local handler (use_romkan=True)
+    This can be done by a local handler (default use_webservice=False)
     Or a network service www.
     '''
-    if use_romkan:
-      katakana = romkan.to_katakana(romaji)
+    if not use_webservice:
+      katakana = transliterate(romaji)
       self.callback(romaji, channel, katakana)
     else:
       #initiate a network lookup of romaji to katakana

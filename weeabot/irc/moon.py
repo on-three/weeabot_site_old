@@ -11,7 +11,6 @@ DATE: Tuesday, Jan 14th 2013
 from twisted.web.client import getPage
 import string
 import re
-import romkan
 from denshi_jisho import scrape_english_definitions
 from twisted.python import log
 
